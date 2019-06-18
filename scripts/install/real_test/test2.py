@@ -8,7 +8,7 @@ drone = api.navigation(timeout=120000)  # instance of flyt droneigation class
 sleep(3)
 
 #add access flight to drone"OFFBOARD""
-drone.access_request(True)
+#drone.access_request(True)
 
 def point_left():
     drone.position_set(5, 0, 0, relative=True)
@@ -16,10 +16,8 @@ def point_left():
 def point_right():
     drone.position_set(-5, 0, 0, relative=True)
 
-
 def point_forward():
     drone.position_set(0, 5, 0, relative=True)
-
 
 def point_backwards():
     drone.position_set(0, -5, 0, relative=True)
