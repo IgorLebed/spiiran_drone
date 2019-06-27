@@ -11,16 +11,16 @@ sleep(3)
 #drone.access_request(True)
 
 def point_left():
-    drone.position_set(5, 0, 0, relative=True)
+    drone.position_set(3, 0, 0, relative=True)
 
 def point_right():
-    drone.position_set(-5, 0, 0, relative=True)
+    drone.position_set(-3, 0, 0, relative=True)
 
 def point_forward():
-    drone.position_set(0, 5, 0, relative=True)
+    drone.position_set(0, 3, 0, relative=True)
 
 def point_backwards():
-    drone.position_set(0, -5, 0, relative=True)
+    drone.position_set(0, -3, 0, relative=True)
 
 def flight2point():
     print "taking off"
@@ -32,9 +32,20 @@ def flight2point():
     print 'forward step 5m'
     point_forward()
 
+    #park
+    #drone.position_set_global(59.943807, 30.468102, 3)
+    #drone.position_set_global(59.943788, 30.468022, 3)
+    #drone.position_set_global(59.943816, 30.467972, 3)
+    #drone.position_set_global(59.943839, 30.468048, 3)
+    #garage
+    #drone.position_set_global(59.873537, 30.316644, 3)
+    #drone.position_set_global(59.873445, 30.316638, 3)
+    #drone.position_set_global(59.873445, 30.316806, 3)
+    #drone.position_set_global(59.873541, 30.316806, 3)
+
     print 'second point'
     print 'right step 5m'
-    point_right()
+    #point_right()
 
     print '3th point'
     print 'backwards step 5m'
@@ -42,7 +53,7 @@ def flight2point():
 
     print '4th point'
     print 'left step 5m'
-    point_left()
+    #point_left()
 
     print 'Landing'
     drone.land(async=False)

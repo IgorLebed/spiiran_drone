@@ -51,7 +51,7 @@ def point_left(RUN = True, y = 5):
     while RUN:
         print x
         drone.position_set(1, 0, 0, relative=True)
-        drone.position_hold()
+        #drone.position_hold()
         sleep(1)
         photo_pose()
         x = x + 1
@@ -63,7 +63,7 @@ def point_right(RUN = True, y = 5):
     while RUN:
         print x
         drone.position_set(-1, 0, 0, relative=True)
-        drone.position_hold()
+        #drone.position_hold()
         sleep(1)
         photo_pose()
         x = x + 1
@@ -75,7 +75,7 @@ def point_forward(RUN = True, y = 5):
     while RUN:
         print x
         drone.position_set(0, 1, 0, relative=True)
-        drone.position_hold()
+        #drone.position_hold()
         sleep(1)
         photo_pose()
         x = x + 1
@@ -87,7 +87,7 @@ def point_backwards(RUN = True, y = 5):
     while RUN:
         print x
         drone.position_set(0, -1, 0, relative=True)
-        drone.position_hold()
+        #drone.position_hold()
         sleep(1)
         photo_pose()
         x = x + 1
@@ -100,7 +100,7 @@ def flight2point():
     drone.take_off(5.0)
 
     print 'going along the setpoints'
-    
+
     print 'first point'
     print 'forward step 5m'
     point_forward(RUN = True, y = 5)
@@ -119,7 +119,6 @@ def flight2point():
 
     print 'Landing'
     drone.land(async=False)
-
     #shutdown the instance
     drone.disconnect()
 

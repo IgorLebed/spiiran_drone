@@ -63,7 +63,7 @@ print gpose.alt
 #send gimbal attitude set
 #drone.access_request()
 
-drone.take_off(3)
+#drone.take_off(3)
 
 #drone.position_set(0, 5, 0, relative=True)
 
@@ -83,7 +83,7 @@ deg_2_rad = 1.0/rad_2_deg
 #--------------------------------------------------
 #--- Define Tag
 id_to_find      = 72
-marker_size     = 13 #- [cm]
+marker_size     = 4 #- [cm]
 freq_send       = 1 #- Hz
 
 land_alt_cm         = 50.0
