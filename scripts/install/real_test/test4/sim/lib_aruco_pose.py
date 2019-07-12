@@ -47,7 +47,7 @@ class ArucoSingleTracker():
                 marker_size,
                 camera_matrix,
                 camera_distortion,
-                camera_size=[1920, 1080]#[1280, 720],
+                camera_size=[1920, 1080], #[1280, 720],
                 show_video=False
                 ):
         
@@ -79,7 +79,7 @@ class ArucoSingleTracker():
         self._cap = cv2.VideoCapture(cam)
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         #self._out = cv2.VideoWriter('/home/flytos/Documents/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080))
-        self._out = cv2.VideoWriter('/flyt/userapps/onboard_user/install/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080))#(1280, 720))
+        self._out = cv2.VideoWriter('/flyt/userapps/onboard_user/install/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080)) #(1280, 720))
         #-- Set the camera size as the one it was calibrated with
         self._cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_size[0])
         self._cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_size[1])
@@ -196,8 +196,8 @@ class ArucoSingleTracker():
 
                     #-- Print the tag position in camera frame
                     str_position = "MARKER Position x=%4.0f  y=%4.0f  z=%4.0f"%(tvec[0], tvec[1], tvec[2])
-                    cv2.putText(frame, str_position, (0, 100), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)        
-                    
+                    cv2.putText(frame, str_position, (0, 100), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+
                     #-- Print the marker's attitude respect to camera frame
                     str_attitude = "MARKER Attitude r=%4.0f  p=%4.0f  y=%4.0f"%(math.degrees(roll_marker),math.degrees(pitch_marker),
                                         math.degrees(yaw_marker))
@@ -215,11 +215,11 @@ class ArucoSingleTracker():
 
             else:
                 if verbose: print "Nothing detected - fps = %.0f"%self.fps_read
-            
+
 
             if show_video:
                 #--- Display the frame
-                cv2.imshow('frame', frame)
+                #cv2.imshow('frame', frame)
                 self._out.write(frame)
 
                 #--- use 'q' to quit
@@ -230,11 +230,11 @@ class ArucoSingleTracker():
                     cv2.destroyAllWindows()
                     break
 
-            if not loop: 
+            if not loop:
                 return(marker_found, x, y, z)
-                
-         
-                
+
+
+
 
 if __name__ == "__main__":
 
@@ -245,7 +245,7 @@ if __name__ == "__main__":
     #--- Get the camera calibration path
     calib_path  = ""
     camera_matrix   = np.loadtxt(calib_path+'cameraMatrix_webcam.txt', delimiter=',')
-    camera_distortion   = np.loadtxt(calib_path+'cameraDistortion_webcam.txt', delimiter=',')                                      
+    camera_distortion   = np.loadtxt(calib_path+'cameraDistortion_webcam.txt', delimiter=',')
     aruco_tracker = ArucoSingleTracker(id_to_find=72, marker_size=13.5, show_video=True, camera_matrix=camera_matrix, camera_distortion=camera_distortion)
-    
+
     aruco_tracker.track(verbose=True)
