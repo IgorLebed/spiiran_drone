@@ -58,11 +58,11 @@ attitude = drone.get_attitude_euler()
 pos = drone.get_local_position()
 print 'Altitude: %f %s' % ((float(pos.z)*(-1))*100,' cm')
 
-print 'Arming...'
-drone.arm()
+#print 'Arming...'
+#drone.arm()
 #time.sleep(2)
-print 'Take off'
-drone.take_off(3)
+#print 'Take off'
+#drone.take_off(3)
 #time.sleep(2)
 
 #drone.position_hold()
@@ -86,9 +86,10 @@ deg_2_rad = 1.0/rad_2_deg
 #--- Define Tag
 id_to_find      = 72
 marker_size     = 13.5 #- [cm]
+#marker_size = 26.5
 freq_send       = 1 #- Hz
 
-land_alt_cm         = 110.0
+land_alt_cm         = 30.0
 angle_descend       = 50*deg_2_rad
 land_speed_cms      = 20.0
 
@@ -127,20 +128,20 @@ while True:
         	print "Altitude = %.0fcm"%z_cm
         	#print "Marker found x = %5.0f cm  y = %5.0f cm -> angle_x = %5f  angle_y = %5f"%(x_cm, y_cm, angle_x*rad_2_deg, angle_y*rad_2_deg)
 
-        	north, east = uav_to_ne(x_cm, y_cm, attitude.yaw)
+        	#north, east = uav_to_ne(x_cm, y_cm, attitude.yaw)
         	#print "Marker N = %5.0f cm   E = %5.0f cm   Yaw = %.0f deg"%(north, east, attitude.yaw*rad_2_deg)
 
         	#marker_lat, marker_lon  = get_location_metres(uav_location_glob, north*0.005, east*0.005)
-        	marker_lat, marker_lon  = get_location_metres(uav_location_glob, 0, 0)
+        	#marker_lat, marker_lon  = get_location_metres(uav_location_glob, 0, 0)
                 ##print marker_lat, marker_lon, (uav_location.z*(-1))
         	##print float(marker_lat), float(marker_lon), float(uav_location.z*(-1))
 
             	#-- If angle is good, descend
-                if check_angle_descend(angle_x, angle_y, angle_descend):
-                    print "Low error: descending"
-                    location_marker = drone.position_set_global(float(marker_lat), float(marker_lon), float(uav_location.z*(-1))-(land_speed_cms*0.01/freq_send))
-                else:
-                    location_marker = drone.position_set_global(float(marker_lat), float(marker_lon), float(uav_location.z*(-1)))
+                #if check_angle_descend(angle_x, angle_y, angle_descend):
+                #    print "Low error: descending"
+                #    location_marker = drone.position_set_global(float(marker_lat), float(marker_lon), float(uav_location.z*(-1))-(land_speed_cms*0.01/freq_send))
+                #else:
+                #    location_marker = drone.position_set_global(float(marker_lat), float(marker_lon), float(uav_location.z*(-1)))
 
 	            #location_marker
                 #print "UAV Location    Lat = %.7f  Lon = %.7f"%(uav_location_glob.lat, uav_location_glob.lon)
@@ -150,7 +151,7 @@ while True:
         #--- Command to land
     	if z_cm <= land_alt_cm:
             #if drone.get_vehicle_mode() == "OFFBOARD":
-            print (" >>LAND<<")
+            print (">>LAND<<")
             drone.land(async=False)
             time.sleep(5)
             drone.disarm()

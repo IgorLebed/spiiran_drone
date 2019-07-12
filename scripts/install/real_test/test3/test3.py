@@ -6,14 +6,15 @@ import cv2
 import pexif
 import sys, os
 
-drone = api.navigation(timeout=120000)  # instance of flyt droneigation class
-sleep(3)
-#drone.access_request()
+#drone = api.navigation(timeout=120000)  # instance of flyt droneigation class
+drone = api.navigation()
+sleep(5)
 
-cam = 0
+
+cam = -1
 #cam = "http://localhost:8080/stream?topic=/flytsim/flytcam/image_capture&width=320&height=240&type=ros_compressed"
 stream = cv2.VideoCapture(cam)
-path = "/flyt/userapps/onboard_user/install/real_test/test3/photo"
+path = "/home/flytos/Documents/photo_from_drone/photo"
 img_number = 0
 
 def position():
@@ -36,10 +37,9 @@ def photo_pose(RUN = True, last_time = time(), img_counter = 0):
             f_name = str(now) + ".jpg"
             cv2.imwrite(os.path.join(path, f_name), img)
             pose_v = position()
-            img_set = pexif.JpegFile.fromFile("/flyt/userapps/onboard_user/install/real_test/test3/photo/" +  str(now) + ".jpg")
+            img_set = pexif.JpegFile.fromFile("/home/flytos/Documents/photo_from_drone/photo/" +  str(now) + ".jpg")
             img_set.set_geo(float(pose_v[0]), float(pose_v[1]), float(pose_v[2]))
-            img_set.writeFile("/flyt/userapps/onboard_user/install/"
-                              "real_test/test3/photo_with_geo/" + str(now) + "_with_geo" + ".jpg")
+            img_set.writeFile("/home/flytos/Documents/photo_from_drone/photo_with_geo/" + str(now) + "_with_geo" + ".jpg")
             img_counter += 1
             last_time = now
             #print(f_name + " has been saved at " + str(now))
@@ -50,7 +50,7 @@ def point_left(RUN = True, y = 5):
     x=0
     while RUN:
         print x
-        drone.position_set(1, 0, 0, relative=True)
+        drone.position_set(0, -1, -4, relative=True)
         #drone.position_hold()
         sleep(1)
         photo_pose()
@@ -62,7 +62,7 @@ def point_right(RUN = True, y = 5):
     x=0
     while RUN:
         print x
-        drone.position_set(-1, 0, 0, relative=True)
+        drone.position_set(0, 1, -4, relative=True)
         #drone.position_hold()
         sleep(1)
         photo_pose()
@@ -74,7 +74,7 @@ def point_forward(RUN = True, y = 5):
     x=0
     while RUN:
         print x
-        drone.position_set(0, 1, 0, relative=True)
+        drone.position_set(1, 0, -4, relative=True)
         #drone.position_hold()
         sleep(1)
         photo_pose()
@@ -86,7 +86,7 @@ def point_backwards(RUN = True, y = 5):
     x=0
     while RUN:
         print x
-        drone.position_set(0, -1, 0, relative=True)
+        drone.position_set(-1, 0, -4, relative=True)
         #drone.position_hold()
         sleep(1)
         photo_pose()
@@ -96,13 +96,17 @@ def point_backwards(RUN = True, y = 5):
 
 def flight2point():
 
-    print "taking off"
-    drone.take_off(5.0)
+    print 'Arming...'
+    drone.arm()
+    #sleep(2)
+    print "Taking off"
+    drone.take_off(4.0)
+    sleep(2)
 
-    print 'going along the setpoints'
+    print 'Going along the setpoints'
 
-    print 'first point'
-    print 'forward step 5m'
+    print 'First point'
+    print 'Forward step 5m'
     point_forward(RUN = True, y = 5)
 
     print 'second point'
@@ -117,8 +121,12 @@ def flight2point():
     print 'left step 5m'
     point_left(RUN = True, y = 5)
 
-    print 'Landing'
+    print 'Landing...'
     drone.land(async=False)
+    time.sleep(5)
+
+    print 'Disarming'
+    drone.disarm()
     #shutdown the instance
     drone.disconnect()
 

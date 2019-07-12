@@ -83,7 +83,7 @@ deg_2_rad = 1.0/rad_2_deg
 #--------------------------------------------------
 #--- Define Tag
 id_to_find      = 72
-marker_size     = 4 #- [cm]
+marker_size     = 13.5 #- [cm]
 freq_send       = 1 #- Hz
 
 land_alt_cm         = 50.0
@@ -128,8 +128,9 @@ while True:
         	north, east = uav_to_ne(x_cm, y_cm, attitude.yaw)
         	print "Marker N = %5.0f cm   E = %5.0f cm   Yaw = %.0f deg"%(north, east, attitude.yaw*rad_2_deg)
 
-        	marker_lat, marker_lon  = get_location_metres(uav_location_glob, north*0.005, east*0.005)  
-        	#print marker_lat, marker_lon, (uav_location.z*(-1))
+        	#marker_lat, marker_lon  = get_location_metres(uav_location_glob, north*0.005, east*0.005)
+        	marker_lat, marker_lon  = get_location_metres(uav_location_glob, 0, 0)
+                #print marker_lat, marker_lon, (uav_location.z*(-1))
         	#print float(marker_lat), float(marker_lon), float(uav_location.z*(-1))
 
             	#-- If angle is good, descend

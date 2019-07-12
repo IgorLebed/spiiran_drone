@@ -47,7 +47,7 @@ class ArucoSingleTracker():
                 marker_size,
                 camera_matrix,
                 camera_distortion,
-                camera_size=[1920, 1080],
+                camera_size=[1280, 720],
                 show_video=False
                 ):
         
@@ -78,7 +78,7 @@ class ArucoSingleTracker():
         #cam = "http://localhost:8080/stream?topic=/flytsim/flytcam/image_capture&width=320&height=240&type=ros_compressed"
         self._cap = cv2.VideoCapture(cam)
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self._out = cv2.VideoWriter('/home/flytos/Documents/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080))
+        self._out = cv2.VideoWriter('output.avi',fourcc, 20.0, (1280, 720))
         #-- Set the camera size as the one it was calibrated with
         self._cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_size[0])
         self._cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_size[1])
@@ -248,12 +248,12 @@ if __name__ == "__main__":
 
     #--- Define Tag
     id_to_find  = 72
-    marker_size  = 13.5 #- [cm]
+    marker_size  = 4 #- [cm]
 
     #--- Get the camera calibration path
     calib_path  = ""
-    camera_matrix   = np.loadtxt(calib_path+'cameraMatrix_webcam.txt', delimiter=',')
-    camera_distortion   = np.loadtxt(calib_path+'cameraDistortion_webcam.txt', delimiter=',')                                      
+    camera_matrix   = np.loadtxt(calib_path+'cameraMatrix_raspi.txt', delimiter=',')
+    camera_distortion   = np.loadtxt(calib_path+'cameraDistortion_raspi.txt', delimiter=',')                                      
     aruco_tracker = ArucoSingleTracker(id_to_find=72, marker_size=6, show_video=False, camera_matrix=camera_matrix, camera_distortion=camera_distortion)
     
     aruco_tracker.track(verbose=True)
