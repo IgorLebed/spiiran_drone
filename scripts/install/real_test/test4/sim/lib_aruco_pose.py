@@ -47,7 +47,7 @@ class ArucoSingleTracker():
                 marker_size,
                 camera_matrix,
                 camera_distortion,
-                camera_size=[1920, 1080],
+                camera_size=[1280, 720],
                 show_video=False
                 ):
         
@@ -78,7 +78,8 @@ class ArucoSingleTracker():
         #cam = "http://localhost:8080/stream?topic=/flytsim/flytcam/image_capture&width=320&height=240&type=ros_compressed"
         self._cap = cv2.VideoCapture(cam)
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self._out = cv2.VideoWriter('/home/flytos/Documents/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080))
+        #self._out = cv2.VideoWriter('/home/flytos/Documents/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080))
+        self._out = cv2.VideoWriter('/flyt/userapps/onboard_user/install/video_from_drone/output.avi',fourcc, 20.0, (1280, 720))
         #-- Set the camera size as the one it was calibrated with
         self._cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_size[0])
         self._cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_size[1])
@@ -144,8 +145,10 @@ class ArucoSingleTracker():
             
             #-- Read the camera frame
             ret, frame = self._cap.read()
-
+            
             self._update_fps_read()
+            
+            
             
             #-- Convert in gray scale
             gray    = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #-- remember, OpenCV stores color images in Blue, Green, Red
@@ -193,21 +196,21 @@ class ArucoSingleTracker():
 
                     #-- Print the tag position in camera frame
                     str_position = "MARKER Position x=%4.0f  y=%4.0f  z=%4.0f"%(tvec[0], tvec[1], tvec[2])
-                    cv2.putText(frame, str_position, (0, 100), font, 1, (0, 255, 0), 2, cv2.LINE_AA)        
+                    cv2.putText(frame, str_position, (0, 100), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)        
                     
                     #-- Print the marker's attitude respect to camera frame
                     str_attitude = "MARKER Attitude r=%4.0f  p=%4.0f  y=%4.0f"%(math.degrees(roll_marker),math.degrees(pitch_marker),
                                         math.degrees(yaw_marker))
-                    cv2.putText(frame, str_attitude, (0, 150), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(frame, str_attitude, (0, 150), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
                     str_position = "CAMERA Position x=%4.0f  y=%4.0f  z=%4.0f"%(pos_camera[0], pos_camera[1], pos_camera[2])
-                    cv2.putText(frame, str_position, (0, 200), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(frame, str_position, (0, 200), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
                     #-- Get the attitude of the camera respect to the frame
-                    roll_camera, pitch_camera, yaw_camera = rotationMatrixToEulerAngles(R_flip*R_tc)
+                    roll_camera, pitch_camera, yaw_camera = self._rotationMatrixToEulerAngles(self._R_flip*R_tc)
                     str_attitude = "CAMERA Attitude r=%4.0f  p=%4.0f  y=%4.0f"%(math.degrees(roll_camera),math.degrees(pitch_camera),
                                         math.degrees(yaw_camera))
-                    cv2.putText(frame, str_attitude, (0, 250), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(frame, str_attitude, (0, 250), self.font, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
 
             else:
@@ -226,22 +229,11 @@ class ArucoSingleTracker():
                     self._out.release()
                     cv2.destroyAllWindows()
                     break
-	 	    
-            if not loop: 
-                
-                self._out.write(frame)
 
-                #--- use 'q' to quit
-                key = cv2.waitKey(1) & 0xFF
-                if key == ord('q'):
-                    #self._cap.release()
-                    self._out.release()
-                    #cv2.destroyAllWindows()
-                    break
-                
+            if not loop: 
                 return(marker_found, x, y, z)
                 
-
+         
                 
 
 if __name__ == "__main__":
@@ -254,31 +246,6 @@ if __name__ == "__main__":
     calib_path  = ""
     camera_matrix   = np.loadtxt(calib_path+'cameraMatrix_webcam.txt', delimiter=',')
     camera_distortion   = np.loadtxt(calib_path+'cameraDistortion_webcam.txt', delimiter=',')                                      
-    aruco_tracker = ArucoSingleTracker(id_to_find=72, marker_size=6, show_video=False, camera_matrix=camera_matrix, camera_distortion=camera_distortion)
+    aruco_tracker = ArucoSingleTracker(id_to_find=72, marker_size=13.5, show_video=True, camera_matrix=camera_matrix, camera_distortion=camera_distortion)
     
     aruco_tracker.track(verbose=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,7 +17,7 @@ def get_location_metres(original_location, dNorth, dEast):
     dLat = dNorth/earth_radius
     dLon = dEast/(earth_radius*math.cos(math.pi*original_location.lat/180))
 
-    print "dlat, dlon", dLat, dLon
+    #print "dlat, dlon", dLat, dLon
 
     #New position in decimal degrees
     newlat = original_location.lat + (dLat * 180/math.pi)
@@ -63,7 +63,7 @@ drone.arm()
 #time.sleep(2)
 print 'Take off'
 drone.take_off(3)
-#time.sleep(2)
+time.sleep(2)
 
 #drone.position_hold()
 
@@ -99,7 +99,7 @@ cwd = path.dirname(path.abspath(__file__))
 calib_path = cwd+""
 camera_matrix  = np.loadtxt(calib_path+'/cameraMatrix_webcam.txt', delimiter=',')
 camera_distortion = np.loadtxt(calib_path+'/cameraDistortion_webcam.txt', delimiter=',')
-aruco_tracker = ArucoSingleTracker(id_to_find=72, marker_size=marker_size, show_video=False,
+aruco_tracker = ArucoSingleTracker(id_to_find=72, marker_size=marker_size, show_video=True,
             camera_matrix=camera_matrix, camera_distortion=camera_distortion)
 
 time_0 = time.time()
