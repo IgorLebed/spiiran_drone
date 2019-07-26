@@ -47,7 +47,7 @@ class ArucoSingleTracker():
                 marker_size,
                 camera_matrix,
                 camera_distortion,
-                camera_size=[1920, 1080], #[1280, 720],
+                camera_size = [1280,720],
                 show_video=False
                 ):
         
@@ -79,7 +79,7 @@ class ArucoSingleTracker():
         self._cap = cv2.VideoCapture(cam)
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         #self._out = cv2.VideoWriter('/home/flytos/Documents/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080))
-        self._out = cv2.VideoWriter('/flyt/userapps/onboard_user/install/video_from_drone/output.avi',fourcc, 20.0, (1920, 1080)) #(1280, 720))
+        self._out = cv2.VideoWriter('output.avi',fourcc, 30.0, (1280, 720)) #(1280, 720))
         #-- Set the camera size as the one it was calibrated with
         self._cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_size[0])
         self._cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_size[1])
@@ -219,7 +219,7 @@ class ArucoSingleTracker():
 
             if show_video:
                 #--- Display the frame
-                #cv2.imshow('frame', frame)
+                cv2.imshow('frame', frame)
                 self._out.write(frame)
 
                 #--- use 'q' to quit

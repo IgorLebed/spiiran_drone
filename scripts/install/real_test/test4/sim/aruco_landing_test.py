@@ -7,7 +7,7 @@ import math
 #import argparse
 
 from flyt_python import api
-from pymavlink import mavutil
+#from pymavlink import mavutil
 from lib_aruco_pose import *
 
 def get_location_metres(original_location, dNorth, dEast):
@@ -51,7 +51,7 @@ def check_angle_descend(angle_x, angle_y, angle_desc):
 #-------------------------------------------------
 
 print('Connecting...')
-drone = api.navigation()
+#drone = api.navigation()
 time.sleep(3)
 attitude = drone.get_attitude_euler()
 
