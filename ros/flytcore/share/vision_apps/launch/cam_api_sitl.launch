@@ -1,0 +1,15 @@
+<launch>
+	<arg name="global_namespace" default="flytsim"/>
+  <arg name="camera_name" default="flytcam"/>
+  <node pkg="vision_apps" name="image_capture" type="image_capture">
+     <remap from="flytcam/image_raw" to="typhoon_h480/cgo3_camera/image_raw"/>
+  </node>
+  <node pkg="web_video_server" name="web_video_server" type="web_video_server" output="screen"/>
+  <!-- <group ns="$(arg camera_name)">
+    <node pkg="image_proc" name="image_proc" type="image_proc">
+    	<remap from="image_raw" to="/$(arg global_namespace)/iris/camera/camera_1/image_raw"/>
+    	<remap from="camera_info" to="/$(arg global_namespace)/iris/camera/camera_1/camera_info"/>
+    </node>  
+  </group> -->
+</launch>
+

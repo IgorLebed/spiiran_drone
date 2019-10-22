@@ -1,0 +1,10 @@
+(cl:defpackage maxbotix-srv
+  (:use )
+  (:export
+   "CHANGEADDRESS"
+   "<CHANGEADDRESS-REQUEST>"
+   "CHANGEADDRESS-REQUEST"
+   "<CHANGEADDRESS-RESPONSE>"
+   "CHANGEADDRESS-RESPONSE"
+  ))
+

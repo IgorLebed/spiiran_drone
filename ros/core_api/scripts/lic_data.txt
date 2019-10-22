@@ -1,0 +1,11 @@
+[lic]
+lv = True
+lt = 0
+id = 854f806c-2e6b-46c7-8e3d-fa42c19732c5
+cp = flytsim
+ts = 1571724948.22
+ed = 1585400316.0
+ser = f4ae019d-0983-4565-a6d5-5f11f9466d95
+mi = 0242ac120002
+hash = 2a15f6b16b9377b15ac021bcb810d40bbbd1b423
+

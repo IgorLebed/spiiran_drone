@@ -1,0 +1,10 @@
+# Send serial data to JeVois module
+#
+# Returns success status 
+ 
+string data
+bool confirmation
+
+---
+bool success
+string message

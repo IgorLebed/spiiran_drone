@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: pyros
+Description: Description of pyros
+Version: 0.2.0
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

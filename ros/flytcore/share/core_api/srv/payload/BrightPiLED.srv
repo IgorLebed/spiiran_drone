@@ -1,0 +1,14 @@
+#Configure brightpi LED
+#takes in the pin number and state of the pin. Returns nothing
+
+uint8 MODE_GET_LED_STATUS = 1
+uint8 MODE_SET_LED_STATUS = 2
+uint8 MODE_SET_LED_GAIN = 3
+
+uint8 mode
+bool state
+uint8 gain
+---
+bool success
+bool state
+string message

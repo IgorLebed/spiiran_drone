@@ -1,0 +1,4 @@
+#Request : Cancels current log download. Does not clear anything else
+#Response : returns success=true if mavlink packet for log_request_end sent
+---
+bool success

@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: web_video_server
+Description: Description of web_video_server
+Version: 0.0.4
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

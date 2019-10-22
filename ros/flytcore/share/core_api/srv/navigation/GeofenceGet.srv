@@ -1,0 +1,10 @@
+# Get geofence polygon points in the form of latitudes and longitudes
+#
+# Returns success status 
+ 
+---
+bool success
+string message
+uint8 count
+float64[] lat
+float64[] lng

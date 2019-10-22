@@ -1,0 +1,10 @@
+#Request : expects command for enabling compensation of roll,pitch or yaw
+#Response : return success=true if command is successfully sent 
+
+bool do_roll_compensation
+bool do_pitch_compensation
+bool do_yaw_compensation
+
+---
+bool success
+string message

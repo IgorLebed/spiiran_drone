@@ -1,0 +1,7 @@
+---
+bool success
+uint8 error_code
+uint8 checkpoint_id
+uint8 missionpoint_number
+uint8 tag_id
+string message

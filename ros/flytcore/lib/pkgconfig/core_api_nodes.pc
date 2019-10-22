@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: core_api_nodes
+Description: Description of core_api_nodes
+Version: 0.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: core_api roscpp mavros_msgs eigen_conversions roslib

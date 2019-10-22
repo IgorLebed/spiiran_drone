@@ -1,0 +1,9 @@
+# Send geofence polygon points to device
+#
+# Returns success status and transfered count
+
+float64[] lat
+float64[] lng
+---
+bool success
+uint8 count

@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: core_api
+Description: Description of core_api
+Version: 1.1.2
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: roscpp std_msgs message_runtime

@@ -1,0 +1,8 @@
+int16[] tags_list
+float32[] tags_size
+bool save
+---
+bool success
+uint8 error_code
+string message
+uint8 no_of_tags

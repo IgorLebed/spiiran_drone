@@ -1,0 +1,7 @@
+float32 landing_threshold
+bool async
+bool hover
+---
+bool success
+uint8 error_code
+string message

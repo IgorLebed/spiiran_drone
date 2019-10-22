@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: catkin_pip
+Description: Description of catkin_pip
+Version: 0.1.17
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

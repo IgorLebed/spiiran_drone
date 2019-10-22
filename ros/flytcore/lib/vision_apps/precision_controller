@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+"""@package precision_controller
+"""
+from vision_apps.msg import *
+from vision_apps.srv import *
+from precision_landing import precision_controller
+precision_controller.main()

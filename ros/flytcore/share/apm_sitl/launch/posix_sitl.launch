@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+    <!-- Posix SITL environment launch script -->
+
+    <arg name="lat" default="37.429324"/>
+    <arg name="lon" default="-122.083388"/>
+    <arg name="alt" default="100"/>
+    <arg name="is_frame_type_copter" default="true"/>
+
+    <group if="$(arg is_frame_type_copter)">
+        <node pkg="apm_sitl" type="arducopter" name="apm_simulator" args="-S -I 0 --home $(arg lat),$(arg lon),$(arg alt),0 --model + --speedup 1 --defaults $(find apm_sitl)/default_params/copter.parm" />
+    </group>
+
+    <group unless="$(arg is_frame_type_copter)">
+        <node pkg="apm_sitl" type="arduplane" name="apm_simulator" args="-S -I 0 --home $(arg lat),$(arg lon),$(arg alt),0 --model plane --speedup 1 --defaults $(find apm_sitl)/default_params/plane.parm" />
+    </group>
+    
+</launch>

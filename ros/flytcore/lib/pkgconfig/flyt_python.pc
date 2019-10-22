@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: flyt_python
+Description: Description of flyt_python
+Version: 1.1.2
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

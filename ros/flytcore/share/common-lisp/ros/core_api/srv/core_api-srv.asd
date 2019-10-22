@@ -1,0 +1,23 @@
+
+(cl:in-package :asdf)
+
+(defsystem "core_api-srv"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :components ((:file "_package")
+    (:file "ActuatorTesting" :depends-on ("_package_ActuatorTesting"))
+    (:file "_package_ActuatorTesting" :depends-on ("_package"))
+    (:file "AutopilotReboot" :depends-on ("_package_AutopilotReboot"))
+    (:file "_package_AutopilotReboot" :depends-on ("_package"))
+    (:file "EscCalibration" :depends-on ("_package_EscCalibration"))
+    (:file "_package_EscCalibration" :depends-on ("_package"))
+    (:file "FirmwareUpgrade" :depends-on ("_package_FirmwareUpgrade"))
+    (:file "_package_FirmwareUpgrade" :depends-on ("_package"))
+    (:file "GetFrameType" :depends-on ("_package_GetFrameType"))
+    (:file "_package_GetFrameType" :depends-on ("_package"))
+    (:file "IsAuthenticated" :depends-on ("_package_IsAuthenticated"))
+    (:file "_package_IsAuthenticated" :depends-on ("_package"))
+    (:file "IsPkgActivated" :depends-on ("_package_IsPkgActivated"))
+    (:file "_package_IsPkgActivated" :depends-on ("_package"))
+    (:file "ModuleCalibration" :depends-on ("_package_ModuleCalibration"))
+    (:file "_package_ModuleCalibration" :depends-on ("_package"))
+  ))

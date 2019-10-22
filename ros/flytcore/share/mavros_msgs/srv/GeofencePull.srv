@@ -1,0 +1,9 @@
+# Requests geofence points from device
+#
+# Returns success status and received count
+
+---
+bool success
+uint8 count
+float64[] lat
+float64[] lng

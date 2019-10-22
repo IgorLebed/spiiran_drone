@@ -1,0 +1,6 @@
+---
+bool success
+uint8 error_code
+string message
+uint8 no_of_missionpoints
+uint8[] missionpoints

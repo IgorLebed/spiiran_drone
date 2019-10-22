@@ -1,0 +1,12 @@
+#Request : expects NONE
+#Response : return success=true 
+
+
+float64 lat
+float64 lon
+float64 alt
+bool set_current
+
+---
+bool success
+string message

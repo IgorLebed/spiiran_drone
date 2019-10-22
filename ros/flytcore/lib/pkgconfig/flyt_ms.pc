@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: flyt_ms
+Description: Description of flyt_ms
+Version: 0.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

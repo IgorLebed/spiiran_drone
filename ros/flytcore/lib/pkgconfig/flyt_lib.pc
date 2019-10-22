@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: flyt_lib
+Description: Description of flyt_lib
+Version: 0.0.0
+Cflags: -I/flyt/flytos/flytcore/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+Libs: -L/flyt/flytos/flytcore/lib -lflyt_lib
+Requires: 

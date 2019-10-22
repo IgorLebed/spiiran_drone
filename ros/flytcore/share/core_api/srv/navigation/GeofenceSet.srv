@@ -1,0 +1,12 @@
+# Send geofence polygon points in the form of latitudes and longitudes, also send the minimum and maximum altitudes
+#
+# Returns success status 
+ 
+float64 min_alt
+float64 max_alt
+float64[] lat
+float64[] lng
+---
+bool success
+string message
+uint8 count

@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="vision_apps" name="video_streaming" type="video_streaming" output="screen"/>
+</launch>

@@ -1,0 +1,10 @@
+int16[] mission_list
+bool from_origin
+---
+bool success
+uint8 error_code
+string message
+---
+bool status
+uint8 error_code
+string message

@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+"""@package tag_detect_manager
+"""
+from vision_apps.msg import *
+from vision_apps.srv import *
+
+from precision_landing import auto_engage
+auto_engage.main()

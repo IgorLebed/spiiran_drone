@@ -1,0 +1,6 @@
+# Requests for access rights
+
+bool enable_access
+---
+bool success
+string message

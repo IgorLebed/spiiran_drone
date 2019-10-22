@@ -1,0 +1,5 @@
+#Requests the AutoPilot to start/resume following waypoints 
+
+---
+bool success
+string message

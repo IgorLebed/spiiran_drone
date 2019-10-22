@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+"""@package tag_detect_manager
+"""
+from vision_apps.srv import *
+from indoor_navigation import tag_detect_jevois
+tag_detect_jevois.main()

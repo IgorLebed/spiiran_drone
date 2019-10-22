@@ -1,0 +1,11 @@
+#Request : ADC channel to be configured
+#Request : ADC stream rate of the above channel in Hz
+
+#Response : success=true if command executed successfully
+#Response : error message if any
+
+int32 channel 
+int32 stream_rate
+---
+bool success
+string message

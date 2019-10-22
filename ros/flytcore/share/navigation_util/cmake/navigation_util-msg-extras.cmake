@@ -1,0 +1,2 @@
+set(navigation_util_MESSAGE_FILES "msg/NavigationPosAction.msg;msg/NavigationPosActionGoal.msg;msg/NavigationPosActionResult.msg;msg/NavigationPosActionFeedback.msg;msg/NavigationPosGoal.msg;msg/NavigationPosResult.msg;msg/NavigationPosFeedback.msg;msg/NavigationVelAction.msg;msg/NavigationVelActionGoal.msg;msg/NavigationVelActionResult.msg;msg/NavigationVelActionFeedback.msg;msg/NavigationVelGoal.msg;msg/NavigationVelResult.msg;msg/NavigationVelFeedback.msg")
+set(navigation_util_SERVICE_FILES "")

@@ -1,0 +1,8 @@
+<launch>
+	<arg name="dummy_wall_distance" default="-1.0"/>
+	<arg name="do_indoor_navigation" default="false"/>
+	<node pkg="obstacle_detection" name="distance_sensor_publisher" type="distance_publisher" >
+		<param name="dummy_wall_distance" value="$(arg dummy_wall_distance)" />
+		<param name="do_indoor_navigation" value="$(arg do_indoor_navigation)" />
+	</node>
+</launch>

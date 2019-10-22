@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+"""@package flyt_manager
+"""
+from flyt_ms import flyt_ms_node
+flyt_ms_node.main()

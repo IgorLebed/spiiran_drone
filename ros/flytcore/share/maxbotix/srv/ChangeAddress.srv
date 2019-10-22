@@ -1,0 +1,10 @@
+# Configure maxbotix sensor I2C address
+#
+# Returns success status 
+ 
+string target_sensor_id
+uint8 source_sensor_addr
+---
+bool success
+float32 range
+string message

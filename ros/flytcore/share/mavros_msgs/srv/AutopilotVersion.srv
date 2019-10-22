@@ -1,0 +1,5 @@
+# AutopilotVersion data
+
+---
+string version
+bool success

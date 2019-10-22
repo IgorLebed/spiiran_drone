@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: object_follower
+Description: Description of object_follower
+Version: 1.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib -lpid
+Requires: roscpp std_msgs

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>object_follower</name>
+  <version>1.0.0</version>
+  <description>
+    Object Follower module does motion planning when provided object data 
+  </description>
+
+  <maintainer email="srv@flytbase.com">Sharvashish Das</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://flytbase.com</url>
+  <author email="srv@flytbase.com">Sharvashish Das</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>core_api</depend>
+  <depend>flyt_lib</depend>
+  <depend>std_msgs</depend>
+  <depend>roscpp</depend>
+
+  <test_depend>boost</test_depend>
+
+</package>
