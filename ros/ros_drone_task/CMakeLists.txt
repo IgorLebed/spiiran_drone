@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_drone_task)
+project(ros_demoapps)
 
 ## Add support for C++11, supported in ROS Kinetic and newer
-add_definitions(-std=c++11)
+add_definitions(-std=c++14)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -102,12 +102,12 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-#catkin_package(
-   #INCLUDE_DIRS include
-   #LIBRARIES roscpp_demoapp
-   #CATKIN_DEPENDS core_api roscpp rospy
-   #DEPENDS system_lib
-#)
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES roscpp_demoapp
+#  CATKIN_DEPENDS core_api roscpp rospy
+#  DEPENDS system_lib
+)
 
 ###########
 ## Build ##
@@ -121,12 +121,9 @@ include_directories(
 )
 
 ## Declare a C++ library
-#add_library(${PROJECT_NAME}
+# add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/roscpp_demoapp.cpp
 # )
-
-#set(core_api)
-#add_library(${PROJECT_NAME} ${core_api})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
