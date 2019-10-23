@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/t_b_node.dir/src/t_battery.cpp.o  -o /root/catkin_ws/devel/lib/ros_demoapps/t_b_node -rdynamic 
