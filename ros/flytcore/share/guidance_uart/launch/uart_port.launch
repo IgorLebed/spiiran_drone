@@ -1,0 +1,7 @@
+<launch>
+  	<arg name="port" default="/dev/ttyUSB0" />
+
+	<node pkg="guidance_uart" type="guidance_uart_node" name="guidance_uart_node" output="screen">
+		<param name="uart_port" value="$(arg port)"/>
+	</node>
+</launch>

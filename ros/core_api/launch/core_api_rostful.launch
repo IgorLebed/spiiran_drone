@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+	<include file="$(find rostful)/launch/rostful.launch">
+		<arg name="topics" value="['/.*/mavros/.*','/.*/flyt/.*','/rosout','/.*/navigation_server_pos/.*']" />
+
+		<arg name="services" value="['/get_global_namespace','/.*/param/.*','/.*/navigation/.*','/.*/setup/.*','/.*/payload/.*','/.*/flyt_ms/.*','/.*/precision_landing/.*','/.*/video_streaming/.*','/.*/maxbotix/change_I2Caddr','/.*/artag_navigation/.*','/.*/indoor_navigation/.*','/.*/mavros/.*']" />
+
+	</include>
+</launch>

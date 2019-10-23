@@ -1,0 +1,14 @@
+
+geometry_msgs/TwistStamped twist
+
+#Termination criterion, in terms of sum of squared error per dimension
+float32 tolerance
+bool alt_rate_invalid
+
+---
+geometry_msgs/TwistStamped twist
+---
+
+geometry_msgs/TwistStamped twist
+#This corresponds to the termination criterion, tolerance
+float32 sum_sq_error

@@ -1,0 +1,7 @@
+vision_apps/Checkpoint[] checkpoint_list
+bool save
+---
+bool success
+uint8 error_code
+string message
+uint8 no_of_checkpoints

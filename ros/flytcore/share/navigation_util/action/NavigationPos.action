@@ -1,0 +1,15 @@
+
+geometry_msgs/PoseStamped pose
+
+#Termination criterion, in terms of sum of squared error per dimension
+float32 tolerance
+bool xy_valid
+
+---
+geometry_msgs/PoseStamped pose
+---
+
+geometry_msgs/Point position_error
+float32 yaw_error
+#This corresponds to the termination criterion, tolerance
+float32 sum_sq_error

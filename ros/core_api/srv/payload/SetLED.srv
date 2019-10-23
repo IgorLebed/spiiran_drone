@@ -1,0 +1,7 @@
+#Switch the pin on or off
+#takes in the pin number and state of the pin. Returns nothing
+string led
+bool state
+---
+bool success
+string message

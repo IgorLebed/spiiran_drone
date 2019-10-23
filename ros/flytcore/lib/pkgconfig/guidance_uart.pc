@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: guidance_uart
+Description: Description of guidance_uart
+Version: 0.0.1
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

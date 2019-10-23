@@ -1,0 +1,22 @@
+<launch>
+    <!-- vim: set ft=xml noet : -->
+    <!-- base node launch file-->
+
+    <arg name="dji_serial_name" default="/dev/ttyUSB0"/>
+    <arg name="dji_baud_rate" default="921600"/>
+    <arg name="dji_app_id" default="1234"/>
+    <arg name="dji_enc_key" default="abcd"/>
+
+    <node pkg="dji_sdk" type="dji_sdk_node" name="dji_sdk" output="screen" respawn="true" respawn_delay="10">
+    <!-- node parameters -->
+    <param name="serial_name" type="string" value="$(arg dji_serial_name)"/>
+    <param name="baud_rate" type="int" value="$(arg dji_baud_rate)"/>
+    <param name="app_id" type="int" value="$(arg dji_app_id)"/>
+    <param name="app_version" type="int" value="1"/>
+    <param name="align_time" type="bool" value="false"/>
+    <param name="enc_key" type="string" value="$(arg dji_enc_key)"/>
+    <param name="use_broadcast" type="bool" value="true"/>
+    </node>
+
+    <node pkg="dji_sdk" type="dji_sdk_remap" name="dji_sdk_remap" />
+</launch>

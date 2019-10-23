@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="vision_apps" name="nav_controller" type="nav_controller" output="screen"/>
+    <node pkg="vision_apps" name="indoor_navigation_server" type="indoor_navigation_server" output="screen"/>
+</launch>

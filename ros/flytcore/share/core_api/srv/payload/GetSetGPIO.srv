@@ -1,0 +1,9 @@
+#Takes in the pin number. Returns state
+
+int8 pin
+bool mode
+bool state
+---
+bool state
+bool success
+string message

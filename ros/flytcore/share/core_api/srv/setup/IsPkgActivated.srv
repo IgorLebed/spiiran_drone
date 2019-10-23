@@ -1,0 +1,5 @@
+string pkg_name
+---
+bool success
+bool activated
+string message

@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: navigation_util
+Description: Description of navigation_util
+Version: 0.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: roscpp std_msgs actionlib_msgs

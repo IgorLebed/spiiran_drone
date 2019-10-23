@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+  <rosparam command="load" file="$(find core_api)/param_files/global_namespace.yaml" ns="global_namespace" />
+  <rosparam command="load" file="$(find core_api)/param_files/flyt_params.yaml" ns="$(arg global_namespace)/parameters" />
+  <arg name="is_dji" default="false"/>
+  <arg name="is_apm_sitl" default="false"/>
+  <arg name="is_px4_sitl" default="false"/>
+  <arg name="dji_app_id_c" default="1234"/>
+  <arg name="dji_enc_key_c" default="abcd"/>
+  <arg name="user_launch_exists" default="false"/>
+
+  <group ns="$(arg global_namespace)">
+
+    #apm sitl specific nodes launched now
+    <group if="$(arg is_apm_sitl)">
+      <include file="$(find apm_sitl)/launch/posix_sitl.launch" >
+        <arg name="lat" value="59.943807"/>
+        <arg name="lon" value="30.467344"/>
+        <arg name="alt" value="100"/>
+      </include>
+      <include file="$(find apm_sitl)/launch/mavros_sitl.launch" />
+    </group>
+
+    #px4 sitl specific nodes launched now
+    <group if="$(arg is_px4_sitl)">
+      <include file="$(find sitl_gazebo)/launch/posix_sitl.launch" >
+        <arg name="global_namespace" value="$(arg global_namespace)"/>
+        <arg name="gui" value="true"/>
+        <arg name="world" value="city"/>
+        <arg name="camera" value="true"/>
+      </include>
+      <include file="$(find vision_apps)/launch/cam_api_sitl.launch" >
+        <arg name="global_namespace" value="$(arg global_namespace)"/>
+      </include>
+      <include file="$(find sitl_gazebo)/launch/mavros_sitl.launch" />
+    </group>
+
+    #apm/px4 specific nodes launched now
+    <group unless="$(eval is_dji+is_apm_sitl+is_px4_sitl)">
+      <include file="$(find mavros)/launch/apm.launch" >
+        <arg name="fcu_url" value="/dev/ttyACM0:115200" />
+        <arg name="gcs_url" value="tcp-l://:5760" />
+      </include>
+    </group>
+
+    #dji specific nodes launched now
+    <group if="$(arg is_dji)">
+      <include file="$(find dji_sdk)/launch/sdk.launch" >
+        <arg name="dji_serial_name" value="/dev/ttyUSB0" />
+        <arg name="dji_baud_rate" value="921600" />
+        <arg name="dji_app_id" value="$(arg dji_app_id_c)" />
+        <arg name="dji_enc_key" value="$(arg dji_enc_key_c)" />
+      </include>
+    </group>
+
+    #common nodes are launched in this section
+    <include file="$(find core_api_nodes)/launch/core_api_nodes.launch" >
+      <arg name="is_dji" value="$(arg is_dji)"/>
+    </include>
+    <include file="$(find navigation_util)/launch/navigation.launch" />
+    <include file="$(find core_api)/launch/core_api_rostful.launch"/>
+    <include file="$(find flyt_remote_link)/launch/flyt_remote_link.launch"/>
+    <node pkg="flyt_ms" name="flyt_ms_node" type="flyt_ms_node"/>
+
+    #non-sitl generic nodes
+    <group unless="$(eval is_apm_sitl+is_px4_sitl)">
+      <include file="$(find vision_apps)/launch/cam_api.launch" />
+      <include file="$(find vision_apps)/launch/raspi_stream.launch"/>
+      <!-- <include file="$(find obstacle_detection)/launch/distance_sensor.launch"/> -->
+      <!-- <node pkg="maxbotix" name="maxbotix" type="maxbotix_node"/> -->
+      <!-- <include file="$(find vision_apps)/launch/precision_landing.launch"/> -->
+      <!-- <include file="$(find vision_apps)/launch/indoor_mission.launch"/> -->
+      <!-- <include file="$(find vision_apps)/launch/tag_detect.launch"/>  -->
+      <!-- <include file="$(find jevois)/launch/jevois.launch" />  -->
+      <!-- <include file="$(find guidance_uart)/launch/uart_port.launch">
+        <arg name="port" value="/dev/ttyUSB0" />
+      </include> -->
+    </group>
+
+    #user specific launch file
+    <group if="$(arg user_launch_exists)">
+      <include file="$(find core_api)/launch/user.launch"/>
+    </group>
+
+  </group>
+</launch>

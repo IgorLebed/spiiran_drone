@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: vision_apps
+Description: Description of vision_apps
+Version: 0.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: cv_bridge image_transport roscpp rospy sensor_msgs std_msgs actionlib_msgs

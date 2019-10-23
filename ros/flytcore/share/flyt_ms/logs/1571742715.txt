@@ -1,0 +1,12 @@
+[info]
+fo_v = 1.5-8rc1g
+dev_t = ('flytsim', 'Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz')
+fstack = apm-sitl
+utc_ts = 1571742715
+
+[flight]
+lat = 59.943808
+lon = 30.467344
+alt = -0.01
+fr_id = 2
+

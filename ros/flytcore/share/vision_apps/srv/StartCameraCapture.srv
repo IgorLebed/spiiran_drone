@@ -1,0 +1,9 @@
+string camera_alias
+string pixel_format
+int64  image_width
+int64  image_height
+int64  framerate
+int64  brightness
+string camera_info_url
+---
+int32 pid

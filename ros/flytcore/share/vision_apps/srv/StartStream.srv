@@ -1,0 +1,13 @@
+string streamer
+string ip
+string port
+string source_type
+string camera_alias
+string topic
+string camera_calib_file
+int64  image_width
+int64  image_height
+int64  framerate
+int64  brightness
+---
+int32 pid

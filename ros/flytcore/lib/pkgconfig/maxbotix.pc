@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: maxbotix
+Description: Description of maxbotix
+Version: 0.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

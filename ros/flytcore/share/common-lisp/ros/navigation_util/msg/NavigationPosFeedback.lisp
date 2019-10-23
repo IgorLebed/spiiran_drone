@@ -1,0 +1,110 @@
+; Auto-generated. Do not edit!
+
+
+(cl:in-package navigation_util-msg)
+
+
+;//! \htmlinclude NavigationPosFeedback.msg.html
+
+(cl:defclass <NavigationPosFeedback> (roslisp-msg-protocol:ros-message)
+  ((position_error
+    :reader position_error
+    :initarg :position_error
+    :type geometry_msgs-msg:Point
+    :initform (cl:make-instance 'geometry_msgs-msg:Point))
+   (yaw_error
+    :reader yaw_error
+    :initarg :yaw_error
+    :type cl:float
+    :initform 0.0)
+   (sum_sq_error
+    :reader sum_sq_error
+    :initarg :sum_sq_error
+    :type cl:float
+    :initform 0.0))
+)
+
+(cl:defclass NavigationPosFeedback (<NavigationPosFeedback>)
+  ())
+
+(cl:defmethod cl:initialize-instance :after ((m <NavigationPosFeedback>) cl:&rest args)
+  (cl:declare (cl:ignorable args))
+  (cl:unless (cl:typep m 'NavigationPosFeedback)
+    (roslisp-msg-protocol:msg-deprecation-warning "using old message class name navigation_util-msg:<NavigationPosFeedback> is deprecated: use navigation_util-msg:NavigationPosFeedback instead.")))
+
+(cl:ensure-generic-function 'position_error-val :lambda-list '(m))
+(cl:defmethod position_error-val ((m <NavigationPosFeedback>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader navigation_util-msg:position_error-val is deprecated.  Use navigation_util-msg:position_error instead.")
+  (position_error m))
+
+(cl:ensure-generic-function 'yaw_error-val :lambda-list '(m))
+(cl:defmethod yaw_error-val ((m <NavigationPosFeedback>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader navigation_util-msg:yaw_error-val is deprecated.  Use navigation_util-msg:yaw_error instead.")
+  (yaw_error m))
+
+(cl:ensure-generic-function 'sum_sq_error-val :lambda-list '(m))
+(cl:defmethod sum_sq_error-val ((m <NavigationPosFeedback>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader navigation_util-msg:sum_sq_error-val is deprecated.  Use navigation_util-msg:sum_sq_error instead.")
+  (sum_sq_error m))
+(cl:defmethod roslisp-msg-protocol:serialize ((msg <NavigationPosFeedback>) ostream)
+  "Serializes a message object of type '<NavigationPosFeedback>"
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'position_error) ostream)
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'yaw_error))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'sum_sq_error))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+)
+(cl:defmethod roslisp-msg-protocol:deserialize ((msg <NavigationPosFeedback>) istream)
+  "Deserializes a message object of type '<NavigationPosFeedback>"
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'position_error) istream)
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'yaw_error) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'sum_sq_error) (roslisp-utils:decode-single-float-bits bits)))
+  msg
+)
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<NavigationPosFeedback>)))
+  "Returns string type for a message object of type '<NavigationPosFeedback>"
+  "navigation_util/NavigationPosFeedback")
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql 'NavigationPosFeedback)))
+  "Returns string type for a message object of type 'NavigationPosFeedback"
+  "navigation_util/NavigationPosFeedback")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<NavigationPosFeedback>)))
+  "Returns md5sum for a message object of type '<NavigationPosFeedback>"
+  "73c4f1364353f8d8f4de503f3aaa2904")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'NavigationPosFeedback)))
+  "Returns md5sum for a message object of type 'NavigationPosFeedback"
+  "73c4f1364353f8d8f4de503f3aaa2904")
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<NavigationPosFeedback>)))
+  "Returns full string definition for message of type '<NavigationPosFeedback>"
+  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%~%geometry_msgs/Point position_error~%float32 yaw_error~%#This corresponds to the termination criterion, tolerance~%float32 sum_sq_error~%~%~%================================================================================~%MSG: geometry_msgs/Point~%# This contains the position of a point in free space~%float64 x~%float64 y~%float64 z~%~%~%"))
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'NavigationPosFeedback)))
+  "Returns full string definition for message of type 'NavigationPosFeedback"
+  (cl:format cl:nil "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======~%~%geometry_msgs/Point position_error~%float32 yaw_error~%#This corresponds to the termination criterion, tolerance~%float32 sum_sq_error~%~%~%================================================================================~%MSG: geometry_msgs/Point~%# This contains the position of a point in free space~%float64 x~%float64 y~%float64 z~%~%~%"))
+(cl:defmethod roslisp-msg-protocol:serialization-length ((msg <NavigationPosFeedback>))
+  (cl:+ 0
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'position_error))
+     4
+     4
+))
+(cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <NavigationPosFeedback>))
+  "Converts a ROS message object to a list"
+  (cl:list 'NavigationPosFeedback
+    (cl:cons ':position_error (position_error msg))
+    (cl:cons ':yaw_error (yaw_error msg))
+    (cl:cons ':sum_sq_error (sum_sq_error msg))
+))

@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="vision_apps" name="precision_controller" type="precision_controller" output="screen"/>
+    <node pkg="vision_apps" name="precision_landing_server" type="precision_landing_server" output="screen"/>
+    <node pkg="vision_apps" name="auto_engage_pl" type="auto_engage_pl" output="screen"/>
+</launch>

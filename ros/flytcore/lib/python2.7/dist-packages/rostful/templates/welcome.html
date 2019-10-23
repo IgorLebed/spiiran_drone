@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/flytFavicon.ico') }}">
+
+    <title>FlytOS Welcome</title>
+
+    <!--Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bs3/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.css') }}">
+    
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-responsive.css') }}">
+
+
+
+</head>
+
+
+<body class="login-body">
+
+    <div class="container">
+
+      <form class="form-welcome"  >
+        <div class="row" >
+            <div class="col-md-4 col-md-offset-4" style='padding:5px 0 10px 0;'>
+                <img align="middle"  id="welcome-logo" width="280px"src="{{ url_for('static', filename='images/os_white.png') }}" >
+                <div class="flytos-version" style="font-weight:500; font-size: 20px; color: white; position: absolute; width: 150px; left: 550px; top: 10px;"></div>
+            </div>
+            <!-- <div class="col-md-9">
+                <h2 class="form-welcome-heading">FLYTOS HOME</h2>
+            </div> -->
+
+        </div>
+
+        <div>
+            <div class="col-md-8" style='font-size:20px; background-color:white;padding:35px;border:2px #3c515f solid;border-width:0 0 2px 2px ; border-radius:0 0 0 10px;height:150px;'>
+            Welcome to FlytOS Web Access. Click the buttons on right to access the inbuilt web-apps.
+            </div>
+            <div class="col-md-4" style="background-color:#999;height:150px;border:2px solid #3c515f; border-width:0  2px 2px 0 ; border-radius:0 0 10px 0;">
+                <div class="col-md-8 col-md-offset-2" style="height:120px; padding:20px 0 0 0;">
+                    <a class="btn  btn-block" style='color:white; background-color:#000;border-radius:5px;' href="/flytconsole">FlytConsole</a>     
+                    <!-- <a class="btn  btn-block" style='color:white; background-color:#000;border-radius:5px;' href="/followme">FollowMe</a> -->
+                    <a class="btn  btn-block" style='color:white; background-color:#000;border-radius:5px;' href="/logs">Logs</a>  
+                  <!--  <a class="btn  btn-block" style='color:white; background-color:#000;border-radius:5px;' href="/joystick">Flyt Joystick</a> -->
+                </div>  
+            </div> 
+        </div>
+
+      </form>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='bs3/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/welcome.js') }}"/>
+    <script type="text/javascript">
+        console.log("Imported");
+    </script>
+  </body>
+</html>

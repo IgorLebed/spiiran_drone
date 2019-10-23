@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: jevois
+Description: Description of jevois
+Version: 1.0.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib -ljevois_serial
+Requires: 

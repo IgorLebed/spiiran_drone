@@ -1,0 +1,5 @@
+string ser_id
+string dev_id
+---
+string lic_type
+string exp_date

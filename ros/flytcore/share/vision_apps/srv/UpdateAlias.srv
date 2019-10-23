@@ -1,0 +1,4 @@
+string old_alias
+string new_alias
+---
+bool success

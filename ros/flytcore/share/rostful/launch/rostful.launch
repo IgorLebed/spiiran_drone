@@ -1,0 +1,26 @@
+<launch>
+  <!-- ******************************* Arguments ******************************* -->
+  <arg name="rostful_port" default="80"/>
+  <arg name="rostful_server" default="tornado"/>
+  <arg name="topics" default="['turtle1/pose']" />
+  <arg name="services" default="[]" />
+  <arg name="params" default="[]" />
+  <arg name="enable_cache" default="false"/>  <!-- since connection_cache is not widely known&used, dont expect it by default -->
+  <arg name="connection_cache_list" default="/rocon/connection_cache/list" doc="topic to listen for connection cache list of connections"/>
+  <arg name="connection_cache_diff" default="/rocon/connection_cache/diff" doc="topic to listen for differences in connection cache list of connections"/>
+
+  <!-- rostful dev server -->
+  <node pkg="rostful" name="rostful" type="devserver" args="-h 0.0.0.0 -p $(arg rostful_port) -s $(arg rostful_server)">
+    <param name="topics" value="$(arg topics)" type="str" />
+    <param name="services" value="$(arg services)" type="str" />
+    <param name="params" value="$(arg params)" type="str" />
+    <param name="enable_cache" value="$(arg enable_cache)" type="bool" />
+    <!-- remapping subscriber to plug into connection cache -->
+    <remap from="~connections_list" to="$(arg connection_cache_list)"/>
+    <remap from="~connections_diff" to="$(arg connection_cache_diff)"/>
+  </node>
+
+
+<node name="rosapi" pkg="rosapi" type="rosapi_node" />
+
+</launch>

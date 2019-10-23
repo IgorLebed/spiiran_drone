@@ -1,0 +1,20 @@
+(cl:defpackage flyt_ms-srv
+  (:use )
+  (:export
+   "DEVSRV"
+   "<DEVSRV-REQUEST>"
+   "DEVSRV-REQUEST"
+   "<DEVSRV-RESPONSE>"
+   "DEVSRV-RESPONSE"
+   "LICCHKSRV"
+   "<LICCHKSRV-REQUEST>"
+   "LICCHKSRV-REQUEST"
+   "<LICCHKSRV-RESPONSE>"
+   "LICCHKSRV-RESPONSE"
+   "LICSRV"
+   "<LICSRV-REQUEST>"
+   "LICSRV-REQUEST"
+   "<LICSRV-RESPONSE>"
+   "LICSRV-RESPONSE"
+  ))
+

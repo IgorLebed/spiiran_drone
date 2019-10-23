@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: sitl_gazebo
+Description: Description of sitl_gazebo
+Version: 1.0.0
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

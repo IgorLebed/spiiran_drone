@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: flyt_remote_link
+Description: Description of flyt_remote_link
+Version: 0.0.0
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

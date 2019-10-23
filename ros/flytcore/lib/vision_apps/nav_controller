@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+"""@package tag_detect_manager
+"""
+from vision_apps.msg import *
+from vision_apps.srv import *
+
+from indoor_navigation import nav_controller
+nav_controller.main()

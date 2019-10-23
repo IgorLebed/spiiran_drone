@@ -1,0 +1,5 @@
+
+---
+bool success
+int16[] tags_list
+float32[] tags_size

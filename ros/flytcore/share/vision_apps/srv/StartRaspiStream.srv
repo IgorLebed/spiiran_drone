@@ -1,0 +1,12 @@
+int64  image_width
+int64  image_height
+int64  framerate
+int64  brightness
+int64  saturation
+bool   flip
+string remote_url
+bool   remote_target
+int64  bitrate
+---
+bool success
+string message

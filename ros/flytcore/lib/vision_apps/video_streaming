@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+"""@package vision_apps
+"""
+from vision_apps import video_streaming
+video_streaming.vision_api_server()

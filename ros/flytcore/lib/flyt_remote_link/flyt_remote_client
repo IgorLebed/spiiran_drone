@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+"""@package flyt_remote_client
+"""
+from flytcl_client import flyt_remote_client
+flyt_remote_client.main()

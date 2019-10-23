@@ -1,0 +1,13 @@
+<launch>
+  <arg name="port1" default="/dev/ttyACM0" />
+  <arg name="port2" default="/dev/ttyACM1" />
+  <arg name="baud" default="115200" />
+  <arg name="marker_length" default="150" />
+
+	<node pkg="jevois" type="jevois_node" name="jevois" output="screen">
+		<param name="uart_port" value="$(arg port1)"/>
+		<param name="uart_port_2" value="$(arg port2)"/>
+		<param name="uart_baud" value="$(arg baud)"/>
+		<param name="marker_length" value="$(arg marker_length)"/>
+	</node>
+</launch>

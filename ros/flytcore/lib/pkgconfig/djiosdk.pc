@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: djiosdk
+Description: Description of djiosdk
+Version: 0.1.9
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib -ldjiosdk
+Requires: 

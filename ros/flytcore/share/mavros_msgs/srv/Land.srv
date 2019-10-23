@@ -1,0 +1,6 @@
+#Request : expects async variable to be set/reset
+#Response : return success=true if Land command sent successfully to autopilot
+
+geometry_msgs/PoseStamped pose
+---
+bool success

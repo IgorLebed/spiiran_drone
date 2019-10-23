@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.5
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib -lusb_cam
+Requires: 

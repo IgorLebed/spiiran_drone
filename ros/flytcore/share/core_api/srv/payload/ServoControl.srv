@@ -1,0 +1,8 @@
+#Controls RPi GPIO pin as Servo using Servoblaster
+#takes in the servo number and requested PWM width in us.
+
+uint16 pwm_width
+uint8 servo_id
+---
+bool success
+string message

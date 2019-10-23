@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: rostful
+Description: Description of rostful
+Version: 0.0.10
+Cflags: 
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: 

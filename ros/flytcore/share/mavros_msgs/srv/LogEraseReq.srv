@@ -1,0 +1,5 @@
+#Request : Sends request tot Autopilot to erase ALL log files
+#Response : returns success=true if mavlink packet for log_request_end sent
+
+---
+bool success

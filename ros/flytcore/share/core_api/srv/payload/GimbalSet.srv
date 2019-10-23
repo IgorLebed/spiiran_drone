@@ -1,0 +1,9 @@
+#Request : expects gimbal attitude setpoint in radians via roll, pitch, yaw
+#Response : return success=true if command is successfully sent 
+
+float64 roll
+float64 pitch
+float64 yaw
+---
+bool success
+string message

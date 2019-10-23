@@ -1,0 +1,6 @@
+bool fresh_pull
+bool get_only_ap
+---
+core_api/ParamInfo[] param_list
+bool success
+string message

@@ -1,0 +1,4 @@
+#Request : Indicates to Autopilot end of log download session
+#Response : returns success=true if mavlink packet for log_request_end sent
+---
+bool success

@@ -1,0 +1,8 @@
+prefix=/flyt/flytos/flytcore
+
+Name: dji_sdk
+Description: Description of dji_sdk
+Version: 3.2.0
+Cflags: -I/flyt/flytos/flytcore/include
+Libs: -L/flyt/flytos/flytcore/lib 
+Requires: message_runtime geometry_msgs nav_msgs std_msgs djiosdk
