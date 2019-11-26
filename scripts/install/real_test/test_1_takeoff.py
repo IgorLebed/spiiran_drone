@@ -19,8 +19,8 @@ def flight_task():
         print 'Comlete arming'
         time.sleep(2)
 
-        print 'Taking off on 5m...'
-        drone.take_off(5.0)
+        print 'Taking off on 10m...'
+        drone.take_off(10.0)
         print 'Position hold on 5sec...'
         drone.position_hold()
         time.sleep(5)

@@ -16,37 +16,24 @@ stream = cv2.VideoCapture(cam)
 
 
 def link_path():
-    # path = "/home/flytos/Documents/photo_from_drone/photo"
-    path = "/flyt/userapps/onboard_user/install/flight_to_point_and_photo/photo"
+    path = "/home/flytos/Documents/photo_from_drone/photo"
+    #path = "/flyt/userapps/onboard_user/install/flight_to_point_and_photo/photo"
     return path
 
 
 def link_photo():
-    # link_photo_without_geo = "/home/flytos/Documents/photo_from_drone/photo/"
-    link_photo_without_geo = "/flyt/userapps/onboard_user/install/flight_to_point_and_photo/photo/"
+    link_photo_without_geo = "/home/flytos/Documents/photo_from_drone/photo/"
+    #link_photo_without_geo = "/flyt/userapps/onboard_user/install/flight_to_point_and_photo/photo/"
     return link_photo_without_geo
 
 
 def link_geo_photo():
-    # link_photo_with_geo = "/home/flytos/Documents/photo_from_drone/photo_with_geo/"
-    link_photo_with_geo = "/flyt/userapps/onboard_user/install/flight_to_point_and_photo/photo_with_geo/"
+    link_photo_with_geo = "/home/flytos/Documents/photo_from_drone/photo_with_geo/"
+    #link_photo_with_geo = "/flyt/userapps/onboard_user/install/flight_to_point_and_photo/photo_with_geo/"
     return link_photo_with_geo
 
 
 def point_left(RUN=True, y=1):
-    x = 0
-    while RUN:
-        print x
-        drone.position_set(0, -1, 0, relative=True)
-        # drone.position_hold()
-        sleep(1)
-        photo_pose()
-        x = x + 1
-        if x // y:
-            RUN = not RUN
-
-
-def point_right(RUN=True, y=1):
     x = 0
     while RUN:
         print x
@@ -59,11 +46,24 @@ def point_right(RUN=True, y=1):
             RUN = not RUN
 
 
+def point_right(RUN=True, y=1):
+    x = 0
+    while RUN:
+        print x
+        drone.position_set(0, -1, 0, relative=True)
+        # drone.position_hold()
+        sleep(1)
+        photo_pose()
+        x = x + 1
+        if x // y:
+            RUN = not RUN
+
+
 def point_forward(RUN=True, y=1):
     x = 0
     while RUN:
         print x
-        drone.position_set(1, 0, 0, relative=True)
+        drone.position_set(-1, 0, 0, relative=True)
         # drone.position_hold()
         sleep(1)
         photo_pose()
@@ -76,7 +76,7 @@ def point_backwards(RUN=True, y=1):
     x = 0
     while RUN:
         print x
-        drone.position_set(-1, 0, 0, relative=True)
+        drone.position_set(1, 0, 0, relative=True)
         # drone.position_hold()
         sleep(1)
         photo_pose()
@@ -122,14 +122,14 @@ def arm_and_takeoff():
     drone.arm()
     # sleep(2)
     print "Taking off"
-    drone.take_off(5.0)
+    drone.take_off(20.0)
     sleep(2)
     print 'Going along the setpoints'
 
 def landing_and_disarm():
     print 'Landing...'
     drone.land(async=False)
-    sleep(5)
+    sleep(10)
 
     print 'Disarming'
     drone.disarm()
@@ -138,20 +138,20 @@ def landing_and_disarm():
 
 def flight2point():
     print 'First point'
-    print 'Forward step 5m'
-    point_forward(RUN=True, y=5)
+    print 'Forward step 10m'
+    point_forward(RUN=True, y=10)
 
     print 'second point'
-    print 'right step 5m'
-    point_right(RUN=True, y=5)
+    print 'right step 10m'
+    point_right(RUN=True, y=10)
 
     print '3th point'
-    print 'backwards step 5m'
-    point_backwards(RUN=True, y=5)
+    print 'backwards step 10m'
+    point_backwards(RUN=True, y=10)
 
     print '4th point'
-    print 'left step 5m'
-    point_left(RUN=True, y=5)
+    print 'left step 10m'
+    point_left(RUN=True, y=10)
 
 
 arm_and_takeoff()
