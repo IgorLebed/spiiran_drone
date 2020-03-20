@@ -3,15 +3,18 @@ from time import time
 from time import sleep
 from flyt_python import api
 import cv2
-#import pexif
 import sys, os
 
 drone = api.navigation()
 sleep(5)
 
-gps_file = open("gps_.txt", "w")
+gps_file = open("/flyt/Documents/gps_.txt", "w")
 
-def link_path():
+def mode_drone():
+    mode_d = drone.get_vehicle_mode()
+
+    if mode_d == 1:
+        return 0
 
 def position():
     gpos = drone.get_global_position()
@@ -21,15 +24,19 @@ def position():
     return la,lo, al
 
 def text_save(RUN=True, counter = 0):
-
     while RUN:
         #now = time()
-        pose_v = possition()
+        pose_v = position()
         L = [str(pose_v[0]), ", ",str(pose_v[1]), ", ", str(pose_v[2]), "\n"]
-        gps_file.writeline(L)
+        gps_file.writelines(L)
         #last_time = now
+        print "Save gps"
         counter +=1
         if counter > 5:
             RUN = not RUN
 
-text_save()
+
+#text_save()
+print mode_drone()
+
+drone.disconnect()
